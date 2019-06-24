@@ -1,21 +1,33 @@
 var ip = {},
-    nip = "#012362"
+    nip = {},
+    B = []
 
 ip.f = "#123134"
-ip.v = []
+nip.f = "#FFFF00"
 
 function cToDez(q) {
-  let s = 1;
-  let e = 3;
-  for (var i = 0; i < 3; i++) {
-    ip.v[i] = parseInt(q.substring(s, e), 16);
-    s + 2; e + 2;
+  let s=1,e=3,o=[];
+  for (let i = 0; i < 3; i++) {
+    o[i] = parseInt(q.substring(s, e), 16)
+    s=s+2;e=e+2
   }
-  return ip;
+  return o;
 }
-cToDez(ip.f);
 
-console.log(ip)
+B = cToDez(ip.f);
+nip.v = cToDez(nip.f);
+
+console.warn(B)
+
+for (let p=0;p<255;p++) {
+  for (var i = 0; i < 3; i++) {
+    B[i] = (B[i] > nip.v[i]) ? B[i]-1:B[i]+1
+  }
+  console.log(B)
+}
+
+B.toString()
+document.getElementsByTagName("body").style.backgroundColor = "rgb(${B})"
 
 
 ip = nip;

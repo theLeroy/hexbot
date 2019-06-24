@@ -17,17 +17,12 @@ function cToDez(q) {
 B = cToDez(ip.f);
 nip.v = cToDez(nip.f);
 
-console.warn(B)
-
-for (let p=0;p<255;p++) {
-  for (var i = 0; i < 3; i++) {
-    B[i] = (B[i] > nip.v[i]) ? B[i]-1:B[i]+1
-  }
-  console.log(B)
-}
-
-B.toString()
-document.getElementsByTagName("body").style.backgroundColor = "rgb(${B})"
-
+var sint = setInterval(() => {
+    for (var i = 0; i < 3; i++) {
+      B[i] = (B[i] > nip.v[i]) ? B[i]-1:B[i]+1
+    }
+    B.toString()
+    document.getElementById("b").style.backgroundColor = `rgb(${B})`
+}, 10)
 
 ip = nip;
